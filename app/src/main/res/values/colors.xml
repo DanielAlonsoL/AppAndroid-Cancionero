@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E10000</color>
+    <color name="colorPrimaryDark">#95000C</color>
+    <color name="colorAccent">#03A9F4</color>
+    <color name="colorControlHighlight">#B1DDF1</color>
+    <color name="colorBlanco">#FFFFFF</color>
+    <color name="duskYellow">#FFD502</color>
+    <color name="duskYellowTransparent">#7CFFD502</color>
+    <color name="lightGrey">#838383</color>
+</resources>

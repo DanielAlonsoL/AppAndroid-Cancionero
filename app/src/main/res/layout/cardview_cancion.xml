@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvCancion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="@dimen/editText_vertical_margin"
+    card_view:cardCornerRadius="@dimen/corner_radius_card_view"
+    card_view:layout_anchorGravity="center_horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgGenero"
+            android:layout_width="@dimen/size_img_genero"
+            android:layout_height="@dimen/size_img_genero"
+            android:adjustViewBounds="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imgGenero"
+            android:layout_margin="@dimen/margin_text_view"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/size_titulo_cancion" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvArtista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_descripcion" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvGenero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_descripcion" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAnio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_descripcion" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCalificacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_descripcion"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

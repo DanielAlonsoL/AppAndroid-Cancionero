@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Canciones</string>
+    <string name="texto_canciones"><b>C A N C I O N E S</b></string>
+
+    <!-- MENU TOOLBAR -->
+    <string name="favoritas">Favoritas</string>
+    <string name="about_me">Acerca de</string>
+    <string name="contact">Contacto</string>
+
+    <string name="texto_btn_guardar">Guardar</string>
+    <string name="texto_btn_back">Editar</string>
+
+    <string name="texto_titulo"><i>Titulo</i></string>
+    <string name="texto_artista"><i>Artista</i></string>
+    <string name="texto_genero"><i>Genero</i></string>
+    <string name="texto_anio"><i>Año</i></string>
+    <string name="texto_calificacion"><i>Calificacion</i></string>
+
+    <string name="saved">La cancion se ha guardado correctamente</string>
+
+
+    <string name="texto_toast">Por favor, completa los campos para continuar</string>
+    <string-array name="generos">
+        <item></item>
+        <item>Country</item>
+        <item>Cumbia</item>
+        <item>Electronica</item>
+        <item>Hip Hop</item>
+        <item>Metal</item>
+        <item>Pop</item>
+        <item>Rock</item>
+        <item>Reggae</item>
+        <item>Reggaeton</item>
+    </string-array>
+
+    <string name="texto_confirmar"><b>CONFIRMAR DATOS</b></string>
+
+    <!-- ERRORES -->
+    <string name="error_titulo">Por favor, ingresa un titulo</string>
+    <string name="error_artista">Por favor, ingresa un artista</string>
+    <string name="error_genero">Por favor, selecciona un genero</string>
+    <string name="error_anio">Por favor, ingresa el año</string>
+
+    <!-- SPLASH -->
+    <string name="texto_splash"><b>BIENVENIDO</b></string>
+    <string name="texto_version">Version 1.0</string>
+
+    <!-- ACERCA DE -->
+    <string name="texto_mi_nombre">Daniel Alonso Lopez</string>
+    <string name="texto_bio">Soy estudiante de la facultad de ingeniería UNAM,
+        tengo 23 años de edad, actualmente en noveno semestre de la carrera de ingeniería en computación,
+        este es el ejercicio 2 del taller de Android, desarrollado para la materia optativa de Cómputo Móvil </string>
+
+    <!-- CONTACTO -->
+    <string name="texto_nombre_contacto">Nombre completo</string>
+    <string name="texto_correo">Correo electronico</string>
+    <string name="texto_mensaje">Mensaje</string>
+    <string name="texto_enviar">Enviar</string>
+
+    <!-- FAVORITAS -->
+    <string name="total">\ / 10.0</string>
+    <string name="seleccion"> Seleccionaste el elemento con ID: \</string>
+
+
+</resources>
