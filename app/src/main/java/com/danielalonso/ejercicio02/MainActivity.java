@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         etAnio = (TextInputEditText) findViewById(R.id.etAnio);
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
-            int cont_id = 0;
             @Override
             public void onClick(View view) {
                 if(validaCampos()){
@@ -103,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
                     dbCancion = new BaseDatosCancion(MainActivity.this);
                     dbCancion.insertarCancion(titulo, artista, genero, Integer.parseInt(anio), rbCalificacion.getRating());
-                    cont_id += 1;
                     limpiar();
                 }
             }

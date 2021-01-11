@@ -82,4 +82,12 @@ public class BaseDatosCancion extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void borrarCancion(String ID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(ConstantesCancion.TABLE_CANCION, ConstantesCancion.TABLE_CANCION_ID+"=?", new String[] {ID});
+        db.close();
+    }
+
+
+
 }

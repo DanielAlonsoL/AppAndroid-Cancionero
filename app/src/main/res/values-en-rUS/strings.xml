@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Songs</string>
+    <string name="texto_canciones"><b>S O N G S</b></string>
+    <string name="favoritas">Favorites</string>
+    <string name="about_me">About</string>
+    <string name="contact">Contact</string>
+    <string name="texto_btn_guardar">Save</string>
+    <string name="texto_btn_back">Edit</string>
+    <string name="texto_titulo"><i>Title</i></string>
+    <string name="texto_artista"><i>Singer</i></string>
+    <string name="texto_genero"><i>Type of music</i></string>
+    <string name="texto_anio"><i>Year</i></string>
+    <string name="texto_calificacion"><i>Stars</i></string>
+    <string name="texto_toast">Please, complete the fields to continue</string>
+    <string name="texto_confirmar"><b>CONFIRM DATA</b></string>
+    <string name="error_titulo">Please, type a title</string>
+    <string name="error_artista">Please, type a singer</string>
+    <string name="error_genero">Please, select a type of music</string>
+    <string name="error_anio">Please, type a year</string>
+    <string name="texto_splash"><b>WELCOME</b></string>
+    <string name="saved">Song has been saved successfully</string>
+    <string name="texto_version">Version 1.0</string>
+    <string name="texto_mi_nombre">Daniel Alonso Lopez</string>
+    <string name="seleccion">You selected the item with ID: \\</string>
+    <string name="texto_bio">"I am a student of the UNAM engineering faculty, I am 23 years old, currently in the ninth semester of the computer engineering career, this is exercise 2 of the Android workshop, developed for the elective subject of Mobile Computing  "</string>
+    <string name="texto_nombre_contacto">Name</string>
+    <string name="texto_correo">Email</string>
+    <string name="texto_mensaje">Message</string>
+    <string name="texto_enviar">Send</string>
+    <string name="intente_mas_tarde">Something went wrong, try later</string>
+    <string name="envio_correcto">Email send successfully</string>
+    <string name="enviando">Sending email</string>
+    <string name="espere">Please, wait a moment</string>
+    <string name="eliminar">Deleted item with ID: \\</string>
+</resources>

@@ -47,9 +47,7 @@
 
     <!-- ACERCA DE -->
     <string name="texto_mi_nombre">Daniel Alonso Lopez</string>
-    <string name="texto_bio">Soy estudiante de la facultad de ingeniería UNAM,
-        tengo 23 años de edad, actualmente en noveno semestre de la carrera de ingeniería en computación,
-        este es el ejercicio 2 del taller de Android, desarrollado para la materia optativa de Cómputo Móvil </string>
+    <string name="texto_bio">"Soy estudiante de la facultad de ingeniería UNAM,         tengo 23 años de edad, actualmente en noveno semestre de la carrera de ingeniería en computación,         este es el ejercicio 2 del taller de Android, desarrollado para la materia optativa de Cómputo Móvil "</string>
 
     <!-- CONTACTO -->
     <string name="texto_nombre_contacto">Nombre completo</string>
@@ -58,8 +56,28 @@
     <string name="texto_enviar">Enviar</string>
 
     <!-- FAVORITAS -->
-    <string name="total">\ / 10.0</string>
+    <string name="total" translatable="false">" / 5.0"</string>
     <string name="seleccion"> Seleccionaste el elemento con ID: \</string>
+    <string name="smtp_host" translatable="false">mail.smtp.host</string>
+    <string name="smtp_gmail" translatable="false">smtp.gmail.com</string>
+    <string name="smtp_socketFactory_port" translatable="false">mail.smtp.socketFactory.port</string>
+    <string name="port" translatable="false">465</string>
+    <string name="smtp_socketFactory_class" translatable="false">mail.smtp.socketFactory.class</string>
+    <string name="net_ssl" translatable="false">javax.net.ssl.SSLSocketFactory</string>
+    <string name="smtp_port" translatable="false">mail.smtp.port</string>
+    <string name="smtp_auth" translatable="false">mail.smtp.auth</string>
+    <string name="auth_true" translatable="false">true</string>
+    <string name="espere">Espere por favor</string>
+    <string name="enviando">Enviando correo...</string>
+    <string name="from" translatable="false">From \</string>
+    <string name="body" translatable="false">"  Body: \\"</string>
+    <string name="envio_exitoso" translatable="false">Envío exitoso</string>
+    <string name="error" translatable="false">Error</string>
+    <string name="envio_exitoso_html" translatable="false"><font color='#509324'>Envío exitoso</font></string>
+    <string name="envio_correcto">El correo se ha enviado con éxito</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="intente_mas_tarde">Algo salió mal, intente más tarde</string>
+    <string name="eliminar">Eliminaste elemento con ID: \</string>
 
 
 </resources>

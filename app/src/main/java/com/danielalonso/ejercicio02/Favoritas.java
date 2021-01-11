@@ -32,12 +32,13 @@ public class Favoritas extends AppCompatActivity {
         setContentView(R.layout.activity_favoritas);
 
         constructorCancion = new ConstructorCancion(this);
-        canciones = constructorCancion.obtenerCanciones();
 
         listaCanciones = findViewById(R.id.rvCanciones);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
+        canciones = constructorCancion.obtenerCanciones();
         cancionAdaptador = new CancionAdaptador(canciones, this);
+        cancionAdaptador.notifyDataSetChanged();
 
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
@@ -45,11 +46,13 @@ public class Favoritas extends AppCompatActivity {
 
         //inicializarMascotas();
         inicializarAdaptador();
+        cancionAdaptador.notifyDataSetChanged();
 
         //Agregando toolbar a la pantalla principal
         toolbar = findViewById(R.id.toolbar_fav);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override
@@ -80,19 +83,9 @@ public class Favoritas extends AppCompatActivity {
 
     public void inicializarAdaptador() {
         CancionAdaptador adaptador = new CancionAdaptador(canciones, this);
+        adaptador.notifyDataSetChanged();
         listaCanciones.setAdapter(adaptador);
     }
-/*
-    public void inicializarMascotas() {
-        mascotas = new ArrayList<>();
 
-        mascotas.add(new Mascota("Chikis", R.drawable.pet3, 6));
-        mascotas.add(new Mascota("Bugs", R.drawable.pet7, 3));
-        mascotas.add(new Mascota("Max", R.drawable.pet1, 9));
-        mascotas.add(new Mascota("Felix", R.drawable.pet5, 2));
-        mascotas.add(new Mascota("Mili", R.drawable.pet2, 8));
 
-    }
-
- */
 }

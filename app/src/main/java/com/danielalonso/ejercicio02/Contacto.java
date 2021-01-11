@@ -50,21 +50,22 @@ public class Contacto extends AppCompatActivity {
         btnEnviar = findViewById(R.id.btnEnviar);
 
         //Remplazar por correo y contraseña
-        sEmail = "usuario@gmail.com";
-        sPassword = "Contraseña";
+        sEmail = "correo";
+        sPassword = "contraseña";
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Inicializa las propiedades
                 Properties properties = new Properties();
+                properties.put(getString(R.string.smtp_host), getString(R.string.smtp_gmail));
+                properties.put(getString(R.string.smtp_socketFactory_port), getString(R.string.port));
+                properties.put(getString(R.string.smtp_socketFactory_class), getString(R.string.net_ssl));
+                properties.put(getString(R.string.smtp_port), getString(R.string.port));
+                properties.put(getString(R.string.smtp_auth), getString(R.string.auth_true));
 
-                properties.put("mail.smtp.host", "smtp.gmail.com");
-                properties.put("mail.smtp.socketFactory.port", "465");
-                properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-                properties.put("mail.smtp.port", "465");
-                properties.put("mail.smtp.auth", "true");
-
-                //Initialize session
+                // Inicializa la sesión
                 Session session = Session.getDefaultInstance(properties, new Authenticator() {
                     @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -74,20 +75,24 @@ public class Contacto extends AppCompatActivity {
 
 
                 try {
-                    //Initialize email content
+                    // Inicializa el contenido del correo
                     Message message = new MimeMessage(session);
-                    //Sender email
+                    // Quien envia mensaje
                     message.setFrom(new InternetAddress(sEmail));
-                    //Recipient email
-                    //Se puede remplazar sEmail para contestarle al usuario que nos pondremos en contacto proximamente
-                    //En este caso se envía un correo al mismo correo con el que se inicia sesión
+    
+                    // Recipiente email
+                    // Se puede remplazar sEmail para contestarle al usuario que nos pondremos en contacto proximamente
+                    // En este caso se envía un correo al mismo correo con el que se inicia sesión
                     message.addRecipients(Message.RecipientType.TO, InternetAddress.parse(sEmail));
-                    //Email subject o Nombre del usuario
+                    // Email subject o Nombre del usuario
                     message.setSubject(nombre.getText().toString().trim());
-                    //Email message
-                    message.setText("From: " + correo.getText().toString().trim() + "\n\nBody: " + mensaje.getText().toString().trim());
+                    // Cuerpo del correo
+                    message.setText(getString(R.string.from) +
+                            correo.getText().toString().trim() +
+                            getString(R.string.body) +
+                            mensaje.getText().toString().trim());
 
-                    //Send email
+                    // Enviar email
                     new SendEmail().execute(message);
 
                 } catch (MessagingException e) {
@@ -110,17 +115,21 @@ public class Contacto extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             progressDialog = ProgressDialog.show(Contacto.this,
-                    "Espere por favor", "Enviando correo...", true, false);
+                    getString(R.string.espere),
+                    getString(R.string.enviando),
+                    true,
+                    false
+            );
         }
 
         @Override
         protected String doInBackground(Message... messages) {
             try {
                 Transport.send(messages[0]);
-                return "Envío exitoso";
+                return getString(R.string.envio_exitoso);
             } catch (MessagingException e) {
                 e.printStackTrace();
-                return "Error";
+                return getString(R.string.error);
             }
         }
 
@@ -129,15 +138,14 @@ public class Contacto extends AppCompatActivity {
             super.onPostExecute(s);
             //Dismiss progress dialog
             progressDialog.dismiss();
-            if (s.equals("Envío exitoso")) {
+            if (s.equals(getString(R.string.envio_exitoso))) {
                 //When success
-
                 //Initialize alert dialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(Contacto.this);
                 builder.setCancelable(false);
-                builder.setTitle(Html.fromHtml("<font color='#509324'>Envío exitoso</font>"));
-                builder.setMessage("El correo se ha enviado con éxito");
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                builder.setTitle(Html.fromHtml(getString(R.string.envio_exitoso_html)));
+                builder.setMessage(getString(R.string.envio_correcto));
+                builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -151,7 +159,7 @@ public class Contacto extends AppCompatActivity {
                 builder.show();
             } else {
                 //When error
-                Toast.makeText(getApplicationContext(), "Algo salió mal, intente más tarde", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.intente_mas_tarde), Toast.LENGTH_SHORT).show();
             }
         }
     }

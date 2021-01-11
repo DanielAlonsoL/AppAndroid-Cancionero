@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.danielalonso.ejercicio02.Favoritas;
+import com.danielalonso.ejercicio02.MainActivity;
+import com.danielalonso.ejercicio02.dbCancion.BaseDatosCancion;
 import com.danielalonso.ejercicio02.pojo.Cancion;
 import com.danielalonso.ejercicio02.R;
 import com.google.android.material.card.MaterialCardView;
@@ -21,8 +24,9 @@ import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
 
 public class CancionAdaptador extends RecyclerView.Adapter<CancionAdaptador.CancionViewHolder> {
-    ArrayList<Cancion> canciones;
-    Activity activity;
+    private ArrayList<Cancion> canciones;
+    private Activity activity;
+    private BaseDatosCancion dbCancion;
 
     //Constructor
     public CancionAdaptador(ArrayList<Cancion> canciones, Activity activity){
@@ -38,17 +42,19 @@ public class CancionAdaptador extends RecyclerView.Adapter<CancionAdaptador.Canc
         return new CancionViewHolder(v);
     }
 
-
     //Asocia cada elemento de la lista con cada View
     @Override
-    public void onBindViewHolder(@NonNull final CancionViewHolder cancionViewHolder, int position) {
+    public void onBindViewHolder(@NonNull final CancionViewHolder cancionViewHolder, final int position) {
         final Cancion cancion = canciones.get(position);
 
         String genero = cancion.getGenero();
         String calificacion = Float.toString(cancion.getCalificacion());
+        final String id = Integer.toString(cancion.getId_cancion());
 
         String totalCalif = cancionViewHolder.setCalificacion(calificacion);
         int imgGenero = cancionViewHolder.setImagen(genero);
+
+        final String texto_eliminar = cancionViewHolder.getTextoEliminar();
 
         cancionViewHolder.imgGenero.setImageResource(imgGenero);
         cancionViewHolder.tvTitutlo.setText(cancion.getTitulo());
@@ -57,7 +63,7 @@ public class CancionAdaptador extends RecyclerView.Adapter<CancionAdaptador.Canc
         cancionViewHolder.tvAnio.setText(Integer.toString(cancion.getAnio()));
         cancionViewHolder.tvCalificacion.setText(totalCalif);
 
-        final String textoToast = cancionViewHolder.setToast(Integer.toString(cancion.getId_cancion()));
+        final String textoToast = cancionViewHolder.setToast(id);
 
         // Mostrar mensaje cuando se seleccione una cardview
         cancionViewHolder.cvCancion.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +73,19 @@ public class CancionAdaptador extends RecyclerView.Adapter<CancionAdaptador.Canc
             }
         });
 
+        cancionViewHolder.icDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(activity, texto_eliminar+id, Toast.LENGTH_SHORT).show();
+                dbCancion = new BaseDatosCancion(activity);
+                canciones.remove(position);
+                dbCancion.borrarCancion(id);
+
+                //Reinicia la actividad pero sin el elemento que se eliminó
+                activity.finish();
+                activity.startActivity(activity.getIntent());
+            }
+        });
     }
 
     //cantidad de elementos que contiene mi lista
@@ -85,6 +104,7 @@ public class CancionAdaptador extends RecyclerView.Adapter<CancionAdaptador.Canc
         private MaterialTextView tvAnio;
 
         private MaterialCardView cvCancion;
+        private ImageView icDelete;
 
         private Resources res;
         private String[] generosArray;
@@ -102,6 +122,8 @@ public class CancionAdaptador extends RecyclerView.Adapter<CancionAdaptador.Canc
             tvGenero = (MaterialTextView) itemView.findViewById(R.id.tvGenero);
             tvAnio = (MaterialTextView) itemView.findViewById(R.id.tvAnio);
             tvCalificacion = (MaterialTextView) itemView.findViewById(R.id.tvCalificacion);
+
+            icDelete = (ImageView) itemView.findViewById(R.id.icDelete);
 
             cvCancion = (MaterialCardView) itemView.findViewById(R.id.cvCancion);
         }
@@ -153,5 +175,8 @@ public class CancionAdaptador extends RecyclerView.Adapter<CancionAdaptador.Canc
             return  res.getString(R.string.seleccion) + string_ID;
         }
 
+        public String getTextoEliminar() {
+            return res.getString(R.string.eliminar);
+        }
     }
 }
