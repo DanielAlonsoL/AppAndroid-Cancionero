@@ -79,7 +79,7 @@ public class Contacto extends AppCompatActivity {
                     Message message = new MimeMessage(session);
                     // Quien envia mensaje
                     message.setFrom(new InternetAddress(sEmail));
-    
+
                     // Recipiente email
                     // Se puede remplazar sEmail para contestarle al usuario que nos pondremos en contacto proximamente
                     // En este caso se envía un correo al mismo correo con el que se inicia sesión
